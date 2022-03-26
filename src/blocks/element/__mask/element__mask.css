@@ -1,0 +1,5 @@
+.element__mask {
+  height: 282px;
+  width: 282px;
+  object-fit: cover;
+}

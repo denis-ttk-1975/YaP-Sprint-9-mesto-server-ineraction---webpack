@@ -1,0 +1,13 @@
+.popup__cross-image {
+  object-fit: contain;
+  object-position: center;
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (max-width: 920px) {
+  .popup__cross-image {
+    width: 20px;
+    height: 20px;
+  }
+}

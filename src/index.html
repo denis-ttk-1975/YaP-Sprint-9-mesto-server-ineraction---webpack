@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
+  </head>
+  <body class="root">
+    <header class="header">
+      <img
+        src="<%=require('./images/logo_mesto-russia.svg')%>"
+        alt="Логотип"
+        class="logo"
+      />
+    </header>
+    <main class="main">
+      <section class="profile">
+        <div class="profile__member-data">
+          <div class="profile__wrapper-avatar">
+            <img src="" alt="Портрет" class="profile__avatar" />
+
+            <div class="profile__overlay-avatar"></div>
+          </div>
+
+          <div class="profile__text-block">
+            <div class="profile__upper-text">
+              <h1 class="profile__member-name"></h1>
+              <button type="button" class="profile__edit-button">
+                <img
+                  src="<%=require('./images/edit-pen.svg')%>"
+                  alt="Клавиша редактирования"
+                  class="profile__image-edit-button"
+                />
+              </button>
+            </div>
+            <p class="profile__lower-text"></p>
+          </div>
+        </div>
+        <button type="button" class="profile__add">
+          <img
+            src="<%=require('./images/plus.svg')%>"
+            alt="Добавить"
+            class="profile__plus-image"
+          />
+        </button>
+      </section>
+      <section class="elements"></section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">&COPY; 2021 Mesto Russia</p>
+    </footer>
+
+    <div class="popup popup_50-opacity popup-profile-input">
+      <!-- popup_opened писать сюда -->
+      <div class="popup__container">
+        <form name="user-data" class="popup__userdata-input">
+          <h2 class="popup__container-name">Редактировать профиль</h2>
+
+          <input
+            type="text"
+            class="popup__input-field"
+            name="full_name"
+            value=""
+            placeholder="Имя"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+
+          <span class="full_name-error popup__input-error"> </span>
+
+          <input
+            type="text"
+            class="popup__input-field"
+            name="about"
+            value=""
+            placeholder="Профессия"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+
+          <span class="about-error popup__input-error"> </span>
+
+          <button type="submit" class="popup__btn-save">Сохранить</button>
+        </form>
+        <button type="button" class="popup__btn-close">
+          <img
+            src="<%=require('./images/close_icon.svg')%>"
+            alt="Закрыть"
+            class="popup__cross-image"
+          />
+        </button>
+      </div>
+    </div>
+    <div class="popup popup_50-opacity popup-new-place">
+      <!-- popup_opened писать сюда -->
+      <div class="popup__container">
+        <form name="new-place" class="popup__userdata-input">
+          <h2 class="popup__container-name">Новое место</h2>
+
+          <input
+            type="text"
+            class="popup__input-field"
+            name="place_name"
+            value=""
+            placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
+          />
+          <span class="place_name-error popup__input-error"> </span>
+          <input
+            type="url"
+            class="popup__input-field"
+            name="picture_link"
+            value=""
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <span class="picture_link-error popup__input-error"> </span>
+
+          <button
+            type="submit"
+            class="popup__btn-save popup__btn-save_new-place-input"
+          >
+            Создать
+          </button>
+        </form>
+        <button type="button" class="popup__btn-close">
+          <img
+            src="<%=require('./images/close_icon.svg')%>"
+            alt="Закрыть"
+            class="popup__cross-image"
+          />
+        </button>
+      </div>
+    </div>
+
+    <div class="popup popup_90-opacity popup-big-picture">
+      <!-- popup_opened писать сюда -->
+      <div class="popup__figure-container">
+        <figure class="popup__picture-container">
+          <img src="" alt="" class="popup__picture" />
+
+          <figcaption class="popup__picture-figcaption"></figcaption>
+        </figure>
+
+        <button type="button" class="popup__btn-close">
+          <img
+            src="<%=require('./images/close_icon.svg')%>"
+            alt="Закрыть"
+            class="popup__cross-image"
+          />
+        </button>
+      </div>
+    </div>
+
+    <div class="popup popup_50-opacity popup-new-avatar">
+      <!-- popup_opened писать сюда -->
+      <div class="popup__container popup__container_avatar-input">
+        <form name="new-avatar" class="popup__userdata-input">
+          <h2 class="popup__container-name">Обновить аватар</h2>
+
+          <input
+            type="url"
+            class="popup__input-field popup__input-field_avatar-input"
+            name="avatar_link"
+            value=""
+            placeholder="Ссылка на картинку аватара"
+            required
+          />
+          <span class="avatar_link-error popup__input-error"> </span>
+
+          <button
+            type="submit"
+            class="popup__btn-save popup__btn-save_avatar-input"
+          >
+            Сохранить
+          </button>
+        </form>
+        <button type="button" class="popup__btn-close">
+          <img
+            src="<%=require('./images/close_icon.svg')%>"
+            alt="Закрыть"
+            class="popup__cross-image"
+          />
+        </button>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <div class="element" data-cardId="">
+        <img
+          src=""
+          alt=""
+          class="element__mask"
+          data-trap="openPictureFullView"
+        />
+        <div class="element__text-wrap">
+          <h2 class="element__card-name"></h2>
+          <div class="element__like-zone">
+            <button
+              type="button"
+              class="element__like-btn"
+              data-trap="likeButtonHandler"
+            ></button>
+            <p class="element__rating">0</p>
+          </div>
+        </div>
+        <img
+          src="<%=require('./images/Trash.svg')%>"
+          alt="Удалить"
+          class="element__delete"
+          data-trap="deleteButtonHandler"
+        />
+      </div>
+    </template>
+    <!-- <script type="module" src="./scripts/index.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,18 @@
+.root {
+  background-color: #000;
+  font-family: "Inter", "Arial", sans-serif;
+  max-width: 880px;
+  margin: auto;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  box-sizing: border-box;
+  min-width: 310px;
+}
+
+@media screen and (max-width: 920px) {
+  .root {
+    /* max-width: 282px; */
+  }
+}

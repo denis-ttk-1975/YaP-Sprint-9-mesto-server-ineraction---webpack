@@ -1,0 +1,9 @@
+.profile__member-data {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 920px) {
+  .profile__member-data {
+    flex-direction: column;
+  }
+}

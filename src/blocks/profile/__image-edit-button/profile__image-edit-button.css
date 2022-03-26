@@ -1,0 +1,15 @@
+.profile__image-edit-button {
+  object-fit: fill;
+  object-position: center;
+  height: 10px;
+  width: 10px;
+  padding: 6px;
+}
+
+@media screen and (max-width: 920px) {
+  .profile__image-edit-button {
+    height: 7.5px;
+    width: 7.5px;
+    padding: 4.25px;
+  }
+}

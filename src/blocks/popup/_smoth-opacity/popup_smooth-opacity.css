@@ -1,0 +1,4 @@
+.popup_smooth-opacity {
+  /* transition: visibility 0s 1s, opacity 1s 0s; */
+  display: flex;
+}

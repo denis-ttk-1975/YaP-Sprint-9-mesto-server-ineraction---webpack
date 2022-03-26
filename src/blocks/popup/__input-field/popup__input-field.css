@@ -1,0 +1,29 @@
+.popup__input-field {
+  display: block;
+  width: 358px;
+  height: 27px;
+  margin: 48px auto 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.popup__input-field:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+@media screen and (max-width: 920px) {
+  .popup__input-field {
+    width: 238px;
+
+    margin: 54px auto 0;
+  }
+}
+
+.popup__input-field:last-of-type {
+  margin: 0 auto 0;
+}
